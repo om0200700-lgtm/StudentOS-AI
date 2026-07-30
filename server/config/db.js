@@ -14,11 +14,20 @@ const connectDB = async () => {
         console.log(`MongoDB Connected: ${conn.connection.host}`);
         connected = true;
       } catch (e) {
-        console.warn(`Could not connect to provided MONGODB_URI. Falling back to persistent embedded MongoDB.`);
+        if (process.env.NODE_ENV && process.env.NODE_ENV.trim() === 'production') {
+          console.error(`FATAL: Could not connect to MongoDB in production. Error: ${e.message}`);
+          process.exit(1);
+        } else {
+          console.warn(`Could not connect to provided MONGODB_URI. Falling back to persistent embedded MongoDB.`);
+        }
       }
     }
     
     if (!connected) {
+      if (process.env.NODE_ENV && process.env.NODE_ENV.trim() === 'production') {
+        console.error('FATAL: MONGODB_URI is missing or failed in production. Memory server is strictly disabled.');
+        process.exit(1);
+      }
       console.warn('WARNING: MONGODB_URI not set or failed. Attempting embedded MongoDB (dev/test only).');
       let MongoMemoryServer;
       try {
