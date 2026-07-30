@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --accent-primary: #3b82f6;
+    --accent-hover: #2563eb;
+    --sidebar-bg: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+  }
+
+  .dark {
+    --bg-primary: #020817;
+    --bg-secondary: #0f172a;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-color: #1e293b;
+    --accent-primary: #3b82f6;
+    --accent-hover: #60a5fa;
+    --sidebar-bg: #020817;
+    --card-bg: rgba(30, 41, 59, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.05);
+  }
+
+  body {
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] antialiased transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--glass-border)] shadow-sm;
+  }
+  
+  .glass-panel {
+    @apply bg-[var(--bg-primary)] opacity-90 backdrop-blur-md border-b border-[var(--border-color)];
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400 dark:bg-slate-600;
+  }
+}
+
+/* Base resets */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

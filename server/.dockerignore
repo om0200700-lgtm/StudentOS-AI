@@ -1,0 +1,6 @@
+node_modules
+.env
+.env.local
+.mongo-data
+npm-debug.log
+*.log

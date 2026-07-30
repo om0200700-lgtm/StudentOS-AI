@@ -1,0 +1,11 @@
+{
+  "name": "studentos-ai-root",
+  "version": "1.0.0",
+  "description": "StudentOS AI Root Workspace",
+  "scripts": {
+    "start": "npm run start --prefix server",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "install:all": "npm install --prefix server && npm install --prefix client"
+  }
+}
