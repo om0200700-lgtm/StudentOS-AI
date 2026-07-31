@@ -27,8 +27,14 @@ https://student-os-ai-plum.vercel.app
 
 ## 📸 Screenshots
 
-(Add screenshots here later)
+### Login
+![Login](screenshots/login.png)
 
+### Register
+![Register](screenshots/register.png)
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
 ## 👨‍💻 Developer
 
 Om Sundarrao Khandare
